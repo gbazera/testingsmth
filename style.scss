@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+$prim: #294af0;
+// $prim: #f02972;
+// $prim: #f0be29;
+$bg1: #11131c;
+$bg2: #191c29;
+$fg1: #fff;
+$fg2: rgba(#fff, .8);
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    margin: 0 auto;
+    background-color: $bg1;
+}
+
+.btn{
+    padding: 8px 14px;
+    background-color: transparent;
+    border: 2px $prim solid;
+    color: $prim;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn:hover{
+    background-color: $prim;
+    color: $bg2;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+    align-items: center;
+    padding: 15px 160px;
+    background-color: $bg2;
+}
+
+.logo{
+    text-decoration: none;
+    color: $prim;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.nav-links{
+    display: flex;
+    list-style: none;
+}
+
+.nav-links{
+    a{
+        margin-left: 15px;
+        text-decoration: none;
+        font-size: 16px;
+        color: $fg2;
+    }
+
+    a:hover{
+        opacity: .8;
+    }
+}
+
+.burger{
+    display: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border: none;
+
+    div{
+        background-color: $fg1;
+        width: 24px;
+        height: 3px;
+        margin: 4px 0;
+        transition: .3s;
+    }
+}
+
+.burger.active{
+    .l2{
+        opacity: 0;
+    }
+
+    .l1{
+        transform: rotateZ(45deg) translate(2px, 6px);
+    }
+
+    .l3{
+        transform: rotateZ(-45deg) translate(4px, -8px);
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .nav-links{
+        a{
+            margin-left: 10px;
+        }
+    }
+}
+
+@media screen and (max-width: 900px){
+    nav{
+        padding: 15px 64px;
+    }
+
+    .burger{
+        display: inline-block;
+    }
+
+    .nav-links{
+        position: absolute;
+        height: 90vh;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        right: 0;
+        top: 10vh;
+        background-color: $bg2;
+        transform: scaleY(0);
+        transform-origin: top;
+        transition: transform .3s;
+
+        a{
+            display: block;
+            margin-bottom: 25px;
+        }
+    }
+
+    .nav-links.active{
+        transform: scaleY(1);
+    }
+}
+
+@media screen and (max-width: 500px){
+    nav{
+        padding: 15px 24px;
+    }
+}
